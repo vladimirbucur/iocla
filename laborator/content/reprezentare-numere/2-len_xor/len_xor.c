@@ -4,22 +4,33 @@
 
 int my_strlen(const char *str)
 {
-	/* TODO */
-	(void) str;
-
-	return -1;
+	int l = 0;
+	const char *p = str;
+	while (*p) {
+		l++;
+		p++;
+	}
+	return l;
 }
-
+//  i + 2^i
 void equality_check(const char *str)
 {
-	/* TODO */
-	(void) str;
+	int i=0;
+	int l = my_strlen(str);
+	while (*(str+i)) {
+		if ( *(str + i) ^ ((*(str + i) + (1 << *(str + i)) % l)))
+			printf("%p\n",str+i);
+		i++;
+	} 
 }
 
 int main(void)
 {
-	/* TODO: Test functions */
-
+	char str[256];
+	scanf("%s", str);
+	int l = my_strlen(str);
+	printf("%d\n", l);
+	equality_check(str);
 	return 0;
 }
 
