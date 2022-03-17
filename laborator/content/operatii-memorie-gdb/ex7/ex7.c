@@ -3,9 +3,32 @@
 #include <assert.h>
 #include <stdlib.h>
 
-int my_strcmp(const char *s1, const char *s2);
+int my_strcmp(const char *s1, const char *s2) {
+	while (*s1) {
+		if (*s1 != *s2)
+			return 0;
+		s1++;
+		s2++;
+	}
+	return 0;
+}
+
 void *my_memcpy(void *dest, const void *src, size_t n);
-char *my_strcpy(char *dest, const char *src);
+
+char *my_strcpy(char *dest, const char *src) {
+	if (dest == NULL) {
+        return NULL;
+    }
+	char *p = dest;
+	while (*src != '\0')
+    {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+	*dest = '\0';
+	return p;
+}
 
 int main() {
 	char s1[] = "Abracadabra";
