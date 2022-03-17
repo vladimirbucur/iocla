@@ -26,6 +26,7 @@ int main() {
 		v[i] = nth_fibo(i);
 
 	v[423433] = 3;
+	
 	free(v);
 
 	return 0;
