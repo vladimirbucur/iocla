@@ -14,8 +14,9 @@ main:
 
     PRINTF32 `[PRINTF32]: %s\n[PUTS]: \x0`, mystring
 
-
-    ; TODO: call puts on string
+    push mystring
+    call puts
+    add esp, 4
 
     leave
     ret
