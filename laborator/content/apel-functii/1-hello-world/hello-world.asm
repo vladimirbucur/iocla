@@ -1,19 +1,24 @@
 %include "../utils/printf32.asm"
 
 section .data
-    msg db 'Hello, world!', 0
+    mystring db "This is my string", 0
 
 section .text
 
 extern puts
+extern printf
 global main
 main:
     push ebp
     mov ebp, esp
 
-    push msg
+    PRINTF32 `[PRINTF32]: %s\n[PUTS]: \x0`, mystring
+
+    push mystring
     call puts
     add esp, 4
+
+    ; TODO: call puts on string
 
     leave
     ret
