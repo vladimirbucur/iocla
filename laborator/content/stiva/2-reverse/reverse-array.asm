@@ -13,8 +13,24 @@ extern printf
 global main
 main:
 
+    xor eax, eax
+    mov ecx, ARRAY_LEN
+
     ; TODO push the elements of the array on the stack
     ; TODO retrieve the elements (pop) from the stack into the output array
+    xor edx, edx
+push_arr:
+    push dword [input + 4 * edx]
+    inc edx
+    loop push_arr
+
+    mov ecx, ARRAY_LEN
+    
+    xor edx, edx
+pop_arr:
+    pop dword [output + 4 * edx]
+    inc edx
+    loop pop_arr
 
     PRINTF32 `Reversed array: \n\x0`
     xor ecx, ecx
